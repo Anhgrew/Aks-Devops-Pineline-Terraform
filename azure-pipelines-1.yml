@@ -17,6 +17,7 @@ stages:
     jobs:
       - job: Scale
         steps:
+        
         - task: AzureCLI@2
           inputs:
             azureSubscription: 'Azure subscription 1(3fe7fa3a-3be2-49bb-ada2-5e2913349932)'
@@ -24,3 +25,4 @@ stages:
             scriptType: 'bash'
             inlineScript: |
               az aks get-credentials --resource-group anhgrew-dev --name anhgrew-dev-cluster
+              az aks nodepool update --name linux101 --cluster-name anhgrew-dev-cluster --resource-group anhgrew-dev --node-count 0
