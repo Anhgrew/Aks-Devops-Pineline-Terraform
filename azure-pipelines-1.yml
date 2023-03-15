@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+schedules:
+- cron: "0 0 * * Sat"
+  displayName: Run on weekends
+  branches:
+    include:
+    - master
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Scale Down Service
+    jobs:
+      - job: Scale
+        steps:
+        - task: AzureCLI@2
+          inputs:
+            azureSubscription: 'Azure subscription 1(3fe7fa3a-3be2-49bb-ada2-5e2913349932)'
+            scriptLocation: 'inlineScript'
+            scriptType: 'bash'
+            inlineScript: |
+              az aks get-credentials --resource-group anhgrew-dev --name anhgrew-dev-cluster
