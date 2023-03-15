@@ -25,4 +25,4 @@ stages:
             scriptType: 'bash'
             inlineScript: |
               az aks get-credentials --resource-group anhgrew-dev --name anhgrew-dev-cluster
-              az aks scale --nodepool-name linux101 --cluster-name anhgrew-dev-cluster --resource-group anhgrew-dev --node-count 0
+              az aks scale --nodepool-name linux101 --name anhgrew-dev-cluster --resource-group anhgrew-dev --node-count 0             
