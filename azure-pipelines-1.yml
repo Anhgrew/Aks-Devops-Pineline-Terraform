@@ -13,7 +13,7 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-  - stage: Scale
+  - stage: Scale-AKS-Node
     jobs:
       - job: Scale
         steps:
@@ -25,4 +25,4 @@ stages:
             scriptType: 'bash'
             inlineScript: |
               az aks get-credentials --resource-group anhgrew-dev --name anhgrew-dev-cluster
-              az aks nodepool stop --nodepool-name linux101 -g anhgrew-dev --cluster-name anhgrew-dev-cluster                      
+              az aks nodepool start --nodepool-name linux101 -g anhgrew-dev --cluster-name anhgrew-dev-cluster                      
