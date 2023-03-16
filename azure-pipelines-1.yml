@@ -13,7 +13,7 @@ pool:
   vmImage: ubuntu-latest
 
 stages:
-  - stage: Scale-AKS-Node
+  - stage: Scale_AKS_Node
     jobs:
       - job: Scale
         steps:
